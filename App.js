@@ -1,91 +1,135 @@
-/*import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
-
-export default function App() {
-  return (
-    <><View style={styles.container}>
-      <Text>Username: </Text>
-      <StatusBar style="auto" />
-      <TextInput placeholder='Input Username here...' />
-      <Text>Password: </Text>
-        <StatusBar style="auto" />
-        <TextInput placeholder='Input Password here...' secureTextEntry={true}/>
-    { </View><View style={styles.container}>
-        <Text>Password: </Text>
-        <StatusBar style="auto" />
-        <TextInput placeholder='Input Password here...' secureTextEntry={true}/>
-      </View><View> }
-        <Button
-          title="Submit"
-          onPress={() => Alert.alert('Submit Button pressed')} />
-      </View></>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'yellow',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});*/
-
-
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-
-const styles = StyleSheet.create({
-  bg: { flex:1, paddingTop: 150, alignItems: 'center', backgroundColor: 'darkolivegreen' },
-  less: { fontSize: 25, color: 'white', fontWeight: 'bold' },
-  greater: { fontSize: 25, color: 'white', fontWeight: 'bold' },
-  button: {
-    width: 150,
-    height: 50,
-    alignItems: 'center',
-    paddingTop: 10,
-    borderRadius: 10,
-    margin:5,
-    backgroundColor: 'yellow'
+import { StatusBar } from 'expo-status-bar';
+import {View, Text, SafeAreaView, TextInput, ScrollView, StyleSheet,TouchableOpacity, ActivityIndicator} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+export default function Home() {
+  const styles = StyleSheet.create({
+    container:{
+    backgroundColor:'#f7f7f7',
+    marginTop:20,
   },
-  buttonText: {
-    fontSize: 25,
-    color: '#000'
-  }
-});
+  headerWrapper:{
+    backgroundColor:'#5566ee',
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    marginTop:20,
+  },
+  header:{
+    padding:20,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    marginTop:20,
+  },
+  iconWhite:{
+    color:'#fff',
+  },
+  headerText:{
+    fontWeight:'bold',
+    color:'#fff',
+    fontSize:18,
+  },
+  splash:{
+    paddingTop:60,
+    paddingBottom:160,
+    alignItems:'center',
+  },
+  content:{
+    marginHorizontal:20,
+    paddingHorizontal:20,
+    backgroundColor:'#fff',
+    borderRadius:15,
+    marginTop:-60,
+  },
+  title:{
+    fontWeight:'bold',
+    fontSize:18,
+    color:'#2d2d2d',
+    paddingVertical:20,
+  },
+  input:{
+    fontWeight:'500',
+    borderBottomWidth: 2,
+    fontSize:16,
+    marginBottom:20,
+    paddingVertical:20,
+  },
+  description:{
+    color:"#989898",
+    textAlign:"center",
+    fontSize:18,
+    padding:20,
+    fontWeight:'500',
+  },
+  buttonWrapper:{
+    alignItems:"center",
+    marginVertical:30,
+  },
+  button:{
+    alignItems:"center",
+    justifyContent:'center',
+    backgroundColor:'#4355ee',
+    width:50,
+    height:50,
+    borderRadius:50,
+  },
+  iconButton:{
+    color:'#fff',
+  },
 
-class Counter extends React.Component {
-  state = { count: 0 };
 
-  setCount = () => this.setState(
-    prevState => ({ ...prevState, count: this.state.count + 1 })
-  )
-  setCount2 = () => this.setState(
-    prevState => ({ ...prevState, count: this.state.count - 1 })
-  )
-
-  render() {
-    const { count } = this.state;
-    return (
-      <View style={[styles.bg]}>
-        <View style={{ height: 100 }}>
-          <Text style={count < 5 ? styles.less : styles.greater}> {count} count</Text>
+  })
+  return (
+    <ScrollView>
+    <View style={styles.container}>
+      <SafeAreaView style={styles.headerWrapper}>
+        <View style={styles.header}>
+          <View>
+            <Icon name="chevron-left" size={24} style={styles.iconWhite}></Icon>
+          </View>
+          <View>
+            <Text style={styles.headerText}>Send Code</Text>
+          </View>
+          <View 
+          style={{
+            width:20,
+          }}/>
+    </View>
+    </SafeAreaView>
+    <View style={styles.content}>
+      <View>
+        <Text style={styles.title}>Login Page &gt;</Text>
+      </View>
+      <View>
+        <TextInput
+        style={styles.input}
+         placeholder="Your Phone Number" 
+         placeholderTextColor='#ababab'/>
+      </View>
+      <View>
+        <Text style={styles.description}>We will send an OTP to verify.</Text>
+      </View>
+      <View style={styles.buttonWrapper}>
+        <TouchableOpacity style={styles.button}>
+          <Icon name="arrow-right" size={25} style={styles.iconButton} />
+        </TouchableOpacity>
+      </View>
+      <View>
+      <View>
+          <ActivityIndicator />
+          <ActivityIndicator size="large" color="#000" />
         </View>
-        <View style={{ height: 100 }}>
-          <TouchableOpacity style={styles.button} onPress={this.setCount}>
-            <Text style={styles.buttonText}>Increment</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.setCount2}>
-            <Text style={styles.buttonText}>Decrement</Text>
-          </TouchableOpacity>
+        <View>
+        
+        <Text style={{ fontSize: 80 }}>What do you want to do?</Text>
+    <Text style={{ fontSize: 80 }}>1. Deposit</Text>
+    <Text style={{ fontSize: 70 }}>2. Withdraw</Text>
+    <Text style={{ fontSize: 80 }}>3. Check Balance</Text>
         </View>
       </View>
-    );
-  }
+    </View>
+    </View>
+    </ScrollView>
+  );
 }
-
-const App = () => (
-  <Counter />
-);
-
-export default App;
+      
