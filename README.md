@@ -1,12 +1,10 @@
-## Assignment 5
+## Assignment 7
 
 ### ScreenShots
 
-![img1](./docs/ss3.jpg)
+![img1](./docs/news-app.gif)
 
-### Image 2
 
-![img1](./docs/ss4.jpg)
 
 
 

@@ -1,19 +1,36 @@
-import Login from "./Login";
-import React, {useState} from "react";
-import Profile from "./Profile";
-import { LoginContext } from "./LoginContext";
-import { View } from "react-native";
+/*import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import Drawnavigator from './Navigation/drawernavigator';
 
-function App(){
-  const [showProfile, setShowProfile] = useState(false);
-  const [username, setUsername] = useState("");
+export default function App() {
   return (
-    <View className="App">
-      <LoginContext.Provider value={{username , setUsername, setShowProfile}}>
-        {showProfile ? <Profile /> : <Login />}
-      </LoginContext.Provider>
-    </View>
+    <NavigationContainer>
+       <Drawnavigator/>
+    </NavigationContainer>
   );
-}
+}*/
 
-export default App;
+
+/*
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import RootDrawNav from './Navigation/RootDrawNav';
+
+export default function App() {
+  return (
+      <NavigationContainer>
+        <RootDrawNav/>
+      </NavigationContainer>
+  );
+}*/
+
+import React, {Component} from 'react';
+import TabScreen from './src/screens/TabScreen.js';
+
+export default class App extends Component {
+  render() {
+    return (
+      <TabScreen/>
+    );
+  }
+}
